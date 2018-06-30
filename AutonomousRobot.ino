@@ -12,9 +12,9 @@
 #define LEFTCURRENT         A1
 
 // DC-motor (A = høyre, B = venstre)
-const int maxSpeed = 255; 
+const int maxSpeed = 255;
 
-// Stepermotor
+// Steppermotor
 int aPin = 4; //IN1: coil a one end
 int bPin = 5; //IN2: coil b one end
 int aPrimePin = 6; //IN3: coil aPrime other end of coil a
@@ -59,8 +59,8 @@ void loop() {
   else {
     goForward(70);
   }
-  
-  mainStepper();  
+
+  mainStepper();
 
 }
 
@@ -105,7 +105,7 @@ void mainStepper(){
   else if (buttonPressed()){
     returnHome();
   }
-  
+
   if (degree == 90) { // Check if number of rotations is even
   // if so reverse direction
     initACW();
@@ -240,11 +240,11 @@ int getDistance(){
   int duration, distance;
   digitalWrite(TRIGPIN, LOW);  //
   delayMicroseconds(2); //
-  
+
   digitalWrite(TRIGPIN, HIGH); //Send pulse
   delayMicroseconds(10); // Wait 10ms
   digitalWrite(TRIGPIN, LOW); //turn off
-  
+
   duration = pulseIn(ECHOPIN, HIGH); //listen for pulse
   return distance = (duration/2) * 0.0343; //calculate distance
 }
@@ -305,5 +305,3 @@ void brakeRight(){
 void brakeLeft(){
   digitalWrite(LEFTBRAKE, HIGH);
 }
-
-
